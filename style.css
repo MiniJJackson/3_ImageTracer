@@ -1,8 +1,6 @@
 body {
   background-color: #1a1919;
   font-family: monospace;
-  margin: 0;
-  padding: 0;
 }
 
 .container {
@@ -17,28 +15,11 @@ h1 {
 #webcam-container {
   position: relative;
   display: inline-block;
-  width: 100%;
 }
 
-video {
-  width: 100%;
-  height: auto;
-}
-
-#capture-btn, #camera-select {
+#capture-btn {
   display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  background-color: #4CAF50;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-#capture-btn:hover, #camera-select:hover {
-  background-color: #45a049;
+  margin: 20px auto;
 }
 
 .card {
@@ -46,56 +27,13 @@ video {
   border-radius: 8px;
   padding: 12px;
   margin: 8px auto;
-  max-width: 100%;
+  max-width: 640px;
 }
 
 .card img {
-  width: 100%;
-  height: auto;
+  max-width: 100%;
 }
 
 .classify-info {
   text-align: center;
-}
-
-@media (min-width: 600px) {
-  .container {
-    margin-top: 40px;
-  }
-
-  #webcam-container {
-    width: 80%;
-  }
-
-  .card {
-    max-width: 80%;
-  }
-
-  #capture-btn, #camera-select {
-    font-size: 18px;
-    padding: 12px 24px;
-  }
-}
-
-@media (min-width: 800px) {
-  .container {
-    margin-top: 60px;
-  }
-
-  #webcam-container {
-    width: 60%;
-  }
-
-  .card {
-    max-width: 60%;
-  }
-
-  #capture-btn, #camera-select {
-    font-size: 20px;
-    padding: 14px 28px;
-  }
-}
-
-.flip-horizontal {
-    transform: scaleX(-1);
 }

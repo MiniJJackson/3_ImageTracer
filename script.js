@@ -9,29 +9,12 @@ function modelLoaded() {
 
 const webcamElement = document.getElementById('webcam');
 const captureButton = document.getElementById('capture-btn');
-const cameraSelect = document.getElementById('camera-select');
 const capturedImageElement = document.getElementById('captured-img');
 const resultElement = document.querySelector('.classify-info');
 
-let webcam;
-
-cameraSelect.addEventListener('change', () => {
-  if (webcam) {
-    webcam.stop();
-  }
-  startWebcam(cameraSelect.value);
-});
-
-function startWebcam(facingMode) {
-  webcam = new Webcam(webcamElement, facingMode, webcamElement.width, webcamElement.height);
-  webcam.start()
-    .then(() => {
-      console.log('Webcam started');
-    })
-    .catch(err => {
-      console.error(err);
-    });
-}
+const canvasElement = document.getElementById('canvas');
+const snapSoundElement = document.getElementById('snapSound');
+const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
 
 captureButton.addEventListener('click', () => {
   if (modelHasLoaded) {
@@ -65,5 +48,10 @@ function displayPredictions(predictions) {
   }
 }
 
-// Start with the front camera
-startWebcam('user');
+webcam.start()
+  .then(() => {
+    console.log('Webcam started');
+  })
+  .catch(err => {
+    console.error(err);
+  });
