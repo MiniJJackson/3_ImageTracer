@@ -1,40 +1,97 @@
 body {
-    background-color: #1a1919;
-    font-family: monospace;
-  }
-  
+  background-color: #1a1919;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h1 {
+  color: #fff;
+}
+
+#webcam-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+#capture-btn, #camera-select {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#capture-btn:hover, #camera-select:hover {
+  background-color: #45a049;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px auto;
+  max-width: 100%;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.classify-info {
+  text-align: center;
+}
+
+@media (min-width: 600px) {
   .container {
-    text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
   }
-  
-  h1 {
-    color: #fff;
-  }
-  
+
   #webcam-container {
-    position: relative;
-    display: inline-block;
+    width: 80%;
   }
-  
-  #capture-btn {
-    display: block;
-    margin: 20px auto;
-  }
-  
+
   .card {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 12px;
-    margin: 8px auto;
-    max-width: 640px;
+    max-width: 80%;
   }
-  
-  .card img {
-    max-width: 100%;
+
+  #capture-btn, #camera-select {
+    font-size: 18px;
+    padding: 12px 24px;
   }
-  
-  .classify-info {
-    text-align: center;
+}
+
+@media (min-width: 800px) {
+  .container {
+    margin-top: 60px;
   }
-  
+
+  #webcam-container {
+    width: 60%;
+  }
+
+  .card {
+    max-width: 60%;
+  }
+
+  #capture-btn, #camera-select {
+    font-size: 20px;
+    padding: 14px 28px;
+  }
+}

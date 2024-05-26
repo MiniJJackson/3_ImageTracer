@@ -9,12 +9,29 @@ function modelLoaded() {
 
 const webcamElement = document.getElementById('webcam');
 const captureButton = document.getElementById('capture-btn');
+const cameraSelect = document.getElementById('camera-select');
 const capturedImageElement = document.getElementById('captured-img');
 const resultElement = document.querySelector('.classify-info');
 
-const canvasElement = document.getElementById('canvas');
-const snapSoundElement = document.getElementById('snapSound');
-const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
+let webcam;
+
+cameraSelect.addEventListener('change', () => {
+  if (webcam) {
+    webcam.stop();
+  }
+  startWebcam(cameraSelect.value);
+});
+
+function startWebcam(facingMode) {
+  webcam = new Webcam(webcamElement, facingMode, webcamElement.width, webcamElement.height);
+  webcam.start()
+    .then(() => {
+      console.log('Webcam started');
+    })
+    .catch(err => {
+      console.error(err);
+    });
+}
 
 captureButton.addEventListener('click', () => {
   if (modelHasLoaded) {
@@ -48,38 +65,5 @@ function displayPredictions(predictions) {
   }
 }
 
-$('#cameraFlip').click(function() {
-    webcam.flip();
-    webcam.start();  
-});
-
-navigator.mediaDevices.enumerateDevices().then(getVideoInputs).catch(errorCallback);
-
-function getVideoInputs(mediaDevices){
-    mediaDevices.forEach(mediaDevice => {
-        if (mediaDevice.kind === 'videoinput') {
-            this._webcamList.push(mediaDevice);
-        }
-    });
-}
-
-navigator.mediaDevices.getUserMedia(this.getMediaConstraints())
-  .then(stream => {
-      this._webcamElement.srcObject = stream;
-      this._webcamElement.play();
-  })
-  .catch(error => {
-     //...
-});
-
-if(this._facingMode == 'user'){
-    this._webcamElement.style.transform = "scale(-1,1)";
-}
-
-webcam.start()
-  .then(() => {
-    console.log('Webcam started');
-  })
-  .catch(err => {
-    console.error(err);
-  });
+// Start with the front camera
+startWebcam('user');
