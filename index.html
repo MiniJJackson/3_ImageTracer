@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/webcam-easy@1.0.0/dist/webcam-easy.min.js"></script>
   <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="style.css">
   <title>Image Classification</title>
 </head>
@@ -14,10 +14,12 @@
     <h1>Loading model...</h1>
     <div id="webcam-container">
       <video id="webcam" autoplay playsinline width="640" height="480"></video>
-      <audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
-      <button id="capture-btn">Capture Photo</button>
-      <button id="toggle-camera-btn">Toggle Camera</button>
       <canvas id="canvas" class="d-none"></canvas>
+      <audio id="snapSound" src="audio/snap.wav" preload="auto"></audio>
+      <button id="capture-btn">Capture Photo</button>
+      <a id="download-photo" download="captured-photo.png">Download Photo</a>
+      <button id="toggle-camera-btn">Toggle Camera</button>
+      <button id="cameraFlip">Flip Camera</button>
     </div>
     <div class="card">
       <img id="captured-img" src="" alt="Captured Photo"/>
