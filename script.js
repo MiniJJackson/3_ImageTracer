@@ -9,11 +9,16 @@ function modelLoaded() {
 
 const webcamElement = document.getElementById('webcam');
 const captureButton = document.getElementById('capture-btn');
+
+const toggleCameraButton = document.getElementById('toggle-camera-btn');
+
 const capturedImageElement = document.getElementById('captured-img');
 const resultElement = document.querySelector('.classify-info');
 
 const canvasElement = document.getElementById('canvas');
 const snapSoundElement = document.getElementById('snapSound');
+
+let currentFacingMode = 'user';// Front facing camera
 const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
 
 captureButton.addEventListener('click', () => {
@@ -33,6 +38,19 @@ captureButton.addEventListener('click', () => {
       });
     };
   }
+});
+
+toggleCameraButton.addEventListener('click', () => {
+  currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
+  webcam.stop();
+  webcam.facingMode = currentFacingMode;
+  webcam.start()
+    .then(() => {
+      console.log(`Camera switched to ${currentFacingMode}`);
+    })
+    .catch(err => {
+      console.error(err);
+    });
 });
 
 function displayPredictions(predictions) {
