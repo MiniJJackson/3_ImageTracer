@@ -95,3 +95,7 @@ video {
     padding: 14px 28px;
   }
 }
+
+.flip-horizontal {
+    transform: scaleX(-1);
+}
