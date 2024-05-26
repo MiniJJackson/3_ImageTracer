@@ -48,6 +48,34 @@ function displayPredictions(predictions) {
   }
 }
 
+$('#cameraFlip').click(function() {
+    webcam.flip();
+    webcam.start();  
+});
+
+navigator.mediaDevices.enumerateDevices().then(getVideoInputs).catch(errorCallback);
+
+function getVideoInputs(mediaDevices){
+    mediaDevices.forEach(mediaDevice => {
+        if (mediaDevice.kind === 'videoinput') {
+            this._webcamList.push(mediaDevice);
+        }
+    });
+}
+
+navigator.mediaDevices.getUserMedia(this.getMediaConstraints())
+  .then(stream => {
+      this._webcamElement.srcObject = stream;
+      this._webcamElement.play();
+  })
+  .catch(error => {
+     //...
+});
+
+if(this._facingMode == 'user'){
+    this._webcamElement.style.transform = "scale(-1,1)";
+}
+
 webcam.start()
   .then(() => {
     console.log('Webcam started');
