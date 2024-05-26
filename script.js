@@ -9,7 +9,7 @@ function modelLoaded() {
 
 const webcamElement = document.getElementById('webcam');
 const captureButton = document.getElementById('capture-btn');
-const toggleCameraButton = document.getElementById('toggle-camera-btn');
+/* const toggleCameraButton = document.getElementById('toggle-camera-btn'); */
 const flipCameraButton = document.getElementById('cameraFlip');
 const capturedImageElement = document.getElementById('captured-img');
 const resultElement = document.querySelector('.classify-info');
@@ -17,16 +17,17 @@ const downloadLink = document.getElementById('download-photo');
 
 const canvasElement = document.getElementById('canvas');
 const snapSoundElement = document.getElementById('snapSound');
-let currentFacingMode = 'user'; // Start with the front camera
+
+let currentFacingMode = 'user'; // front camera
 
 let webcam = new Webcam(webcamElement, currentFacingMode, canvasElement, snapSoundElement);
 
 captureButton.addEventListener('click', () => {
   if (modelHasLoaded) {
     let picture = webcam.snap();
-    snapSoundElement.play(); // Play the snap sound
+    snapSoundElement.play();
     capturedImageElement.src = picture;
-    downloadLink.href = picture; // Set the href attribute for download
+    downloadLink.href = picture;
     resultElement.innerHTML = '<h2>Classifying...</h2>';
     const img = new Image();
     img.src = picture;
@@ -41,7 +42,7 @@ captureButton.addEventListener('click', () => {
     };
   }
 });
-
+/*
 toggleCameraButton.addEventListener('click', () => {
   currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
   webcam.stop();
@@ -54,6 +55,8 @@ toggleCameraButton.addEventListener('click', () => {
       console.error(err);
     });
 });
+
+*/
 
 
 $('#cameraFlip').click(function() {

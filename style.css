@@ -25,7 +25,7 @@ video {
   height: auto;
 }
 
-#capture-btn, #toggle-camera-btn {
+#capture-btn, #toggle-camera-btn, #cameraFlip {
   display: block;
   margin: 10px auto;
   padding: 5px 10px;
@@ -37,7 +37,7 @@ video {
   border-radius: 5px;
 }
 
-#capture-btn:hover, #toggle-camera-btn:hover {
+#capture-btn:hover, #toggle-camera-btn, #cameraFlip:hover {
   background-color: #45a049;
 }
 
