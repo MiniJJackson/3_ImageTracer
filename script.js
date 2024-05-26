@@ -3,7 +3,7 @@ let modelHasLoaded = false;
 
 function modelLoaded() {
   console.log('Yay, the model has loaded!');
-  document.querySelector(".container h1").innerText = "Model loaded. Click capture to take a photo.";
+  document.querySelector(".container h1").innerText = "Go ahead and take a photo of something. Let's see if we can guess what it is.";
   modelHasLoaded = true;
 }
 
