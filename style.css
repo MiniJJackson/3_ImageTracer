@@ -1,0 +1,40 @@
+body {
+    background-color: #1a1919;
+    font-family: monospace;
+  }
+  
+  .container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  h1 {
+    color: #fff;
+  }
+  
+  #webcam-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  #capture-btn {
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px auto;
+    max-width: 640px;
+  }
+  
+  .card img {
+    max-width: 100%;
+  }
+  
+  .classify-info {
+    text-align: center;
+  }
+  
